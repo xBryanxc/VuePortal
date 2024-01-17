@@ -404,7 +404,9 @@ class ApiService {
 
             const response = await fetch(URl, requestOptions)
             const data = await response.json()
-            this.tasks.value = await data
+            this.tasks.value = await data.map((task: ITask) => {
+                return { ...task, Project: "SISTEMAS" };
+            });
         } catch (error) {
             console.log(error)
         }
