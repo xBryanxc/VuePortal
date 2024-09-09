@@ -14,10 +14,10 @@
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
+                    <th class="px-4 py-3">Referencia base</th>
                     <th class="px-4 py-3">Id</th>
                     <th class="px-4 py-3">Trámite</th>
                     <th class="px-4 py-3">Fase</th>
-                    <th class="px-4 py-3">Referencia base</th>
                     <th class="px-4 py-3">Id Solicitante</th>
                     <th class="px-4 py-3">Descripción Solicitante</th>
                     <th class="px-4 py-3">Fecha de llegada</th>
@@ -27,10 +27,10 @@
             </thead>
             <tbody>
                 <tr v-for="item in resultadosFiltrados" :key="item.TaskId" class="border-b cursor-pointer" @click="abrirIframe(item.TaskId ?? 0, item.Project ?? 'VUI')">
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessBaseReference }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskId }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessClassName }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ item.StatusName }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessBaseReference }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ 1111111 }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessTheme1 }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.ArrivalDate ?? new Date()) }}</td>
