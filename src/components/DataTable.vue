@@ -5,23 +5,20 @@
             <!-- Search bar -->
             <SearchForm @buscar="administrarBusqueda"/>
             <div class="flex items-center justify-end text-sm font-semibold">
-                <!-- Radio buttons -->
-                <FilterRadios @filtrar="administrarFiltro"/>
-                <!-- Dropdown -->
-                <FiltrosDropdown :items="props.items" @filtrar="administrarFiltrosCheckbox"/>
             </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
-                    <th class="px-4 py-3">Referencia base</th>
-                    <th class="px-4 py-3">Id</th>
+                    <th class="px-4 py-3">Ref. Base</th>
+                    <th class="px-4 py-3">ID Trámite</th>
                     <th class="px-4 py-3">Trámite</th>
                     <th class="px-4 py-3">Fase</th>
                     <th class="px-4 py-3">Id Solicitante</th>
-                    <th class="px-4 py-3">Descripción Solicitante</th>
+                    <th class="px-4 py-3">Nombre Solicitante</th>
                     <th class="px-4 py-3">Fecha de llegada</th>
                     <th class="px-4 py-3">Fecha de vencimiento</th>
+                    <th class="px-4 py-3">Detalle</th>
                     <th class="px-4 py-3"></th>
                 </tr>
             </thead>
@@ -35,20 +32,21 @@
                     <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessTheme1 }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.ArrivalDate ?? new Date()) }}</td>
                     <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.Deadline ?? new Date()) }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskClassName }}</td>
                     <td class="px-4 py-3">
                         <span v-if="comprobarVencimiento(item.Deadline ?? new Date()) == 'vencida'" class="text-red-500 cursor-pointer" title="VENCIDA">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 7a1 1 0 012 0v4a1 1 0 11-2 0V7zm1 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                <circle cx="10" cy="10" r="8" />
                             </svg>
                         </span>
                         <span v-else-if="comprobarVencimiento(item.Deadline ?? new Date()) == 'casi_vencida'" class="text-yellow-500 cursor-pointer" title="POR VENCER">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4 10h12a1 1 0 110 2H4a1 1 0 110-2z" clip-rule="evenodd" />
+                                <circle cx="10" cy="10" r="8" />
                             </svg>
                         </span>
                         <span v-else-if="comprobarVencimiento(item.Deadline ?? new Date()) == 'en_tiempo'" class="text-green-500 cursor-pointer" title="A TIEMPO">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd" />
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <circle cx="10" cy="10" r="8" />
                             </svg>
                         </span>
                     </td>
@@ -63,8 +61,6 @@
 import { defineProps, computed, ref } from 'vue';
 import ITask from '@/interfaces/ITask'
 import SearchForm from './SearchForm.vue';
-import FilterRadios from './FilterRadios.vue';
-import FiltrosDropdown from './FiltrosDropdown.vue';
 // import IFrameComponent from './IFrameComponent.vue';
 
 const filtro = ref('');

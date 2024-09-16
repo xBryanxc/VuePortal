@@ -336,7 +336,7 @@ class ApiService {
                 "TaskClassCode": "TP.1",
                 "TaskClassName": "Seguimiento de Tramites pendientes de tramitar",
                 "ArrivalDate": "2023-12-06T14:32:55.47-06:00",
-                "Deadline": "2024-12-08T14:32:55-06:00",
+                "Deadline": "2025-12-08T14:32:55-06:00",
                 "NoticeDate": "1900-01-01T00:00:00",
                 "OriginalStartDatePrevision": "1900-01-01T00:00:00",
                 "OriginalEndDatePrevision": "1900-01-01T00:00:00",
