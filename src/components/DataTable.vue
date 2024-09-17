@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white relative border rounded-lg">
+    <div class="bg-white relative border rounded-lg font-gotham">
         <div class="flex items-center justify-between">
             <!-- Filters -->
             <!-- Search bar -->
@@ -15,7 +15,7 @@
                     <th class="px-4 py-3">Trámite</th>
                     <th class="px-4 py-3">Fase</th>
                     <th class="px-4 py-3">Id Solicitante</th>
-                    <th class="px-4 py-3">Nombre Solicitante</th>
+                    <th class="px-4 py-3">Solicitante</th>
                     <th class="px-4 py-3">Fecha de llegada</th>
                     <th class="px-4 py-3">Fecha de vencimiento</th>
                     <th class="px-4 py-3">Detalle</th>
