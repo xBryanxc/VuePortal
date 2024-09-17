@@ -41,7 +41,7 @@ watchEffect(() => {
                     },
                     title: {
                         display: true,
-                        text: 'Tareas por origen'
+                        text: 'Estado de las tareas'
                     }
                 }
             }
