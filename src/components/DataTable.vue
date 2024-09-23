@@ -10,6 +10,7 @@
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
+                    <th class="px-4 py-3"></th>
                     <th class="px-4 py-3">Ref. Base</th>
                     <th class="px-4 py-3">ID Trámite</th>
                     <th class="px-4 py-3">Trámite</th>
@@ -19,20 +20,10 @@
                     <th class="px-4 py-3">Fecha de llegada</th>
                     <th class="px-4 py-3">Fecha de vencimiento</th>
                     <th class="px-4 py-3">Detalle</th>
-                    <th class="px-4 py-3"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="item in resultadosFiltrados" :key="item.TaskId" class="border-b cursor-pointer" @click="abrirIframe(item.TaskId ?? 0, item.Project ?? 'VUI')">
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessBaseReference }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskId }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessClassName }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.StatusName }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ 1111111 }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessTheme1 }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.ArrivalDate ?? new Date()) }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.Deadline ?? new Date()) }}</td>
-                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskClassName }}</td>
                     <td class="px-4 py-3">
                         <span v-if="comprobarVencimiento(item.Deadline ?? new Date()) == 'vencida'" class="text-red-500 cursor-pointer" title="VENCIDA">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -50,6 +41,15 @@
                             </svg>
                         </span>
                     </td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessBaseReference }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskId }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessClassName }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.StatusName }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ 1111111 }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.ProcessTheme1 }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.ArrivalDate ?? new Date()) }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ formatFecha(item.Deadline ?? new Date()) }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-900">{{ item.TaskClassName }}</td>
                 </tr>
             </tbody>
         </table>
